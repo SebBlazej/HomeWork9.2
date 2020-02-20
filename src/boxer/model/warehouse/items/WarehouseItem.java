@@ -5,13 +5,9 @@ import boxer.model.figures.Cylinder;
 import boxer.model.figures.Figure;
 import boxer.model.figures.Sphere;
 
-public class WarehouseItem {
+public class WarehouseItem implements Comparable<WarehouseItem> {
 
-    protected final Figure figure;
-
-    WarehouseItem(Figure figure) {
-        this.figure = figure;
-    }
+    final Figure figure;
 
     WarehouseItem(double height, double baseRadius) {
         this.figure = new Cylinder(height, baseRadius);
@@ -25,22 +21,24 @@ public class WarehouseItem {
         this.figure = new Sphere(radius);
     }
 
-    public void printInfo() {
+    @Override
+    public int compareTo(WarehouseItem o) {
+        return this.figure.compareTo(o.getFigure());
+    }
+
+    private Figure getFigure() {
+        return this.figure;
+    }
+
+    void printInfo() {
         this.figure.printInfo();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof WarehouseItem)) return false;
-
-        WarehouseItem that = (WarehouseItem) o;
-
-        return figure.equals(that.figure);
-    }
 
     @Override
-    public int hashCode() {
-        return figure.hashCode();
+    public String toString() {
+        return "WarehouseItem{" +
+                "figure=" + figure +
+                '}';
     }
 }

@@ -1,6 +1,6 @@
 package boxer.model.figures;
 
-public class Cuboid extends Figure implements Comparable<Figure>{
+public class Cuboid extends Figure implements Comparable<Figure> {
 
     private double height;
     private double width;
@@ -16,19 +16,21 @@ public class Cuboid extends Figure implements Comparable<Figure>{
 
     @Override
     public int compareTo(Figure f) {
-        if(this.equals(f)) return 0;
-        else if(this.getHeight() <= f.getHeight()) {
-            if (f instanceof Cylinder && (this.getDiagonalOfTopViewProjection() <= ((Cylinder) f).getBaseRadius() * 2)) return -1;
-            else if (f instanceof Cuboid && (ifFitCuboid(((Cuboid) f)) || ifFitCuboidAfterRotationInto(((Cuboid) f)))) return -1;
+        if (this.equals(f)) return 0;
+        else if (this.getHeight() <= f.getHeight()) {
+            if (f instanceof Cylinder && (this.getDiagonalOfTopViewProjection() <= ((Cylinder) f).getBaseRadius() * 2))
+                return -1;
+            else if (f instanceof Cuboid && (this.baseSidesFit(((Cuboid) f)) || this.baseSidesFitAfterRotation(((Cuboid) f))))
+                return -1;
         }
         return 1;
     }
 
-    private boolean ifFitCuboid(Cuboid cuboid){
+    private boolean baseSidesFit(Cuboid cuboid) {
         return (this.length <= cuboid.getLength() && this.width <= cuboid.getWidth());
     }
 
-    private boolean ifFitCuboidAfterRotationInto(Cuboid cuboid){
+    private boolean baseSidesFitAfterRotation(Cuboid cuboid) {
         return (this.length <= cuboid.getWidth() && this.width <= cuboid.getLength());
     }
 
@@ -60,14 +62,14 @@ public class Cuboid extends Figure implements Comparable<Figure>{
     @Override
     public void printInfo() {
         System.out.println(" - o kształcie - Prostopadloscianu");
-        System.out.println("Wysokosc - " + this.height  + " | Szerokość - " + this.width + " | Długość - " + this.length);
+        System.out.println("Wysokosc - " + this.height + " | Szerokość - " + this.width + " | Długość - " + this.length);
         super.printInfo();
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if(o == null) return false;
+        if (o == null) return false;
         if (!(o instanceof Cuboid)) return false;
         if (!super.equals(o)) return false;
 

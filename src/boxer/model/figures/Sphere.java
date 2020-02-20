@@ -1,6 +1,6 @@
 package boxer.model.figures;
 
-public class Sphere extends Figure implements Comparable<Figure>{
+public class Sphere extends Figure implements Comparable<Figure> {
 
     private double radius;
 
@@ -12,8 +12,8 @@ public class Sphere extends Figure implements Comparable<Figure>{
 
     @Override
     public int compareTo(Figure f) {
-        if(this.equals(f)) return 0;
-        else if(this.getHeight() <= f.getHeight()) {
+        if (this.equals(f)) return 0;
+        else if (this.getHeight() <= f.getHeight()) {
             if (f instanceof Cuboid && (this.radius * 2 <= f.getWidth() && this.radius * 2 <= f.getLength())) return -1;
             else if (f instanceof Cylinder && (this.radius <= ((Cylinder) f).getBaseRadius())) return -1;
         }
@@ -47,14 +47,14 @@ public class Sphere extends Figure implements Comparable<Figure>{
     @Override
     public void printInfo() {
         System.out.println(" - o kształcie -  Sfery");
-        System.out.println("Wysokość " + this.getHeight() + " | Średnica - " + this.radius );
+        System.out.println("Wysokość " + this.getHeight() + " | Średnica - " + this.radius);
         super.printInfo();
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if(o == null) return false;
+        if (o == null) return false;
         if (!(o instanceof Sphere)) return false;
         if (!super.equals(o)) return false;
 

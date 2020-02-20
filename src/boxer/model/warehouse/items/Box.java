@@ -1,19 +1,20 @@
 package boxer.model.warehouse.items;
 
-import boxer.model.figures.Figure;
 
-public class Box extends WarehouseItem implements Comparable<Box> {
+public class Box extends WarehouseItem {
 
-    public Box(Figure figure) {
-        super(figure);
-    }
-
-    public Box(double height, double baseRadius){
+    public Box(double height, double baseRadius) {
         super(height, baseRadius);
     }
 
-    public Box(double height, double width, double length){
+    public Box(double height, double width, double length) {
         super(height, width, length);
+    }
+
+    @Override
+    public void printInfo() {
+        System.out.print("Pudelko");
+        super.printInfo();
     }
 
     @Override
@@ -21,19 +22,5 @@ public class Box extends WarehouseItem implements Comparable<Box> {
         return "Box{} " + super.figure.toString();
     }
 
-    @Override
-    public void printInfo(){
-        System.out.print("Pudelko");
-        super.printInfo();
-    }
-
-    @Override
-    public int compareTo(Box o) {
-        return figure.compareVolumeTo(o.getFigure());
-    }
-
-    Figure getFigure(){
-        return super.figure;
-    }
 
 }

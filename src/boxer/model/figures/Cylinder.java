@@ -1,6 +1,6 @@
 package boxer.model.figures;
 
-public class Cylinder extends Figure {
+public class Cylinder extends Figure implements Comparable<Figure> {
 
     private double baseRadius;
     private double height;
@@ -10,6 +10,12 @@ public class Cylinder extends Figure {
         this.baseRadius = baseRadius;
         this.height = height;
         super.setVolume();
+    }
+
+    @Override
+    public int compareTo(Figure f) {
+        if (this.equals(f)) return 0;
+        else return super.compareVolumeTo(f);
     }
 
     double getBaseRadius() {
@@ -46,7 +52,7 @@ public class Cylinder extends Figure {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if(o == null) return false;
+        if (o == null) return false;
         if (!(o instanceof Cylinder)) return false;
         if (!super.equals(o)) return false;
 

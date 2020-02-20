@@ -59,7 +59,7 @@ public class TestClass {
         boxList.add(new Box(5, 5, 10));
         boxList.add(new Box(5, 10, 7));
 
-        boxList.add(new Box( 1999, 350, 100 ));
+        boxList.add(new Box(1999, 350, 100));
         return boxList;
     }
 
@@ -75,7 +75,7 @@ public class TestClass {
 
         tempList.add(new Product("Drewniany klocek", 5, 10, 5));
 
-        tempList.add(new Product("Wielki produkt", 1999, 350, 100 ));
+        tempList.add(new Product("Wielki produkt", 1999, 350, 100));
 
         return tempList;
     }

@@ -48,7 +48,7 @@ public class BoxChooser {
     private List<Box> findPossibleBoxes(Product product) {
         List<Box> tempList = new ArrayList<>();
         for (Box box : boxList) {
-            if (product.compareSizeTo(box) <= 0) tempList.add(box);
+            if (product.compareTo(box) <= 0) tempList.add(box);
         }
         return tempList;
     }

@@ -1,12 +1,11 @@
 package boxer.model.figures;
 
-public abstract class Figure{
+public abstract class Figure implements Comparable<Figure> {
 
     private double volume;
 
     Figure() {
     }
-
 
     public abstract double getHeight();
 
@@ -15,6 +14,9 @@ public abstract class Figure{
     public abstract double getLength();
 
     abstract double countVolume();
+
+    @Override
+    public abstract int compareTo(Figure o);
 
     void setVolume() {
         this.volume = countVolume();
@@ -31,7 +33,7 @@ public abstract class Figure{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if(o == null) return false;
+        if (o == null) return false;
         if (!(o instanceof Figure)) return false;
 
         Figure figure = (Figure) o;
@@ -46,9 +48,9 @@ public abstract class Figure{
     }
 
 
-    public int compareVolumeTo(Figure o) {
-        if(this.getVolume() < o.getVolume()) return -1;
-        else if(this.getVolume() == o.getVolume()) return 0;
+    int compareVolumeTo(Figure o) {
+        if (this.getVolume() < o.getVolume()) return -1;
+        else if (this.getVolume() == o.getVolume()) return 0;
         return 1;
     }
 
