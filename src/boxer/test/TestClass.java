@@ -70,6 +70,8 @@ public class TestClass {
         tempList.add(new Product("Sanki", 10, 7, 5));
         tempList.add(new Product("Mała kostka", 1, 1, 1));
 
+        tempList.add(new Product("Niemożliwy przedmiot", 10000, 1000, 100000));
+
         tempList.add(new Product("Wielkie kuliszcze", 30));
         tempList.add(new Product("Bombka", 5));
 
